@@ -8,8 +8,8 @@ function StartTrivia(props) {
   return(
     <div className="start--container">
       <h1 className="start--title"> Test your knowledge in: </h1>
-      <h3 className="start--info"> Select Topic: </h3>
       <Select
+        placeholder={"Select Your Topic"}
         onChange={props.selectedCategory}
         options={props.topics}
       />

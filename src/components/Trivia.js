@@ -17,7 +17,7 @@ function Trivia(props) {
     <div className="trivia--component">
       <div className="trivia--question">
       <h2>{props.question.replace(/&quot;/g,'"').replace(/&#039;/g, "'")
-      .replace(/&amp;/g, "&").replace(/&rsquo;/g, "").replace(/&ouml/g, "ö")}</h2>
+      .replace(/&amp;/g, "&").replace(/&rsquo;/g, "").replace(/&ouml/g, "ö").replace(/&Atilde;/g, "ã").replace(/&shy;/g, "-").replace(/&uuml;/g, "ü").replace(/&eacute;/g, "é").replace(/&divide;/g, "/").replace(/&aacute;/g, "á").replace(/&ndash;/g, "–")}</h2>
       </div>
       <div className="trivia--answer_button">
       {props.answer_options.map((item, i) => <button
@@ -26,7 +26,7 @@ function Trivia(props) {
         value={item.isCorrect}
         disabled={item.disabled}
         name={item.answer} onClick={props.answerClick}>
-        {item.answer.replace(/&quot;/g,'"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&rsquo;/g, "").replace(/&ouml/g, "ö") }
+        {item.answer.replace(/&quot;/g,'"').replace(/&#039;/g, "'").replace(/&amp;/g, "&").replace(/&rsquo;/g, "").replace(/&ouml/g, "ö").replace(/&Atilde;/g, "ã").replace(/&divide;/g, "/").replace(/&shy;/g, "-").replace(/&uuml;/g, "ü").replace(/&eacute;/g, "é").replace(/&aacute;/g, "á").replace(/&ndash;/g, "–")}
       </button>)}
       </div>
       <br></br>

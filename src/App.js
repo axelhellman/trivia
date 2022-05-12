@@ -13,7 +13,7 @@ function App() {
   const [topics, setTopics] = React.useState([])
   const [category, setCategory] = React.useState()
 
-  // currently a race condition
+  //currently a race condition
   React.useEffect(() => {
     async function getTopics() {
       const res = await fetch("https://opentdb.com/api_category.php")
@@ -40,6 +40,7 @@ function App() {
 
     React.useEffect(() => {
       let dataFetched= true;
+
       async function getTrivia() {
         const api_address =  category ? ("https://opentdb.com/api.php?amount=10"+category) :  ("https://opentdb.com/api.php?amount=10")
         console.log(api_address)
@@ -47,6 +48,7 @@ function App() {
         const data = await res.json()
 
         if(dataFetched && data.response_code === 0){
+          console.log(1)
           setOptions(data.results.map((item, index)=>({
             //set anser, question_id, isCorrect, disabled, className, also merges incorrect_answers and correct_answer to a single array. Then shuffle it the array
             // NOTE TO SELF: one-liners like these are ugly
@@ -57,13 +59,14 @@ function App() {
       }
       !start && getTrivia()
       return () => dataFetched = false;
-    }, [start, category])
+    }, [start, category, playAgain])
 
 
       function startTrivia(selectedTopic){
         setStart(!start)
       }
     React.useEffect(() => {
+
       setOptions(prevState => {
               return prevState.map((option) => {
                   return {...option,
@@ -100,6 +103,7 @@ function App() {
    }
    */
     function answerClick(e) {
+      if(!score){
       setOptions(prevState => {
               return prevState.map((option) => {
                   return option.id === parseInt(e.target.id) ?  {...option,
@@ -128,6 +132,7 @@ function App() {
           setCheckedAnswers(arr)
         }
       }
+      }
 
     function scoreCheck(){
       if(checkedAnswers.length === 10 ){
@@ -143,6 +148,14 @@ function App() {
       setPlayAgain(!playAgain)
       setScore()
       setCheckedAnswers([])
+      setOptions([])
+    }
+    function changeTopic(){
+      setPlayAgain(!playAgain)
+      setScore()
+      setCheckedAnswers([])
+      setOptions([])
+      setStart(!start)
     }
     const triviaElements = options.map((arr, i) =>
     <Trivia
@@ -175,6 +188,7 @@ function App() {
         <div className="playagain--component">
           <button className="playagain--button" onClick={restartGame}> Play Again </button>
           <div className="score"> Your score: {score.length}/{correct.length} </div>
+          <button className="playagain--button" onClick={changeTopic}> Change Topic </button>
         </div>}
       </div>}
     </div>

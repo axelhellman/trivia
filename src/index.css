@@ -1,11 +1,12 @@
 body {
-  margin: 0;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #F5F7FB;
+  margin:50px;
 }
 
 code {
@@ -15,8 +16,8 @@ code {
 
 .start--container{
   text-align: center;
-  margin-top: 25%;
-  margin-bottom: 25%;
+  margin-top: 10%;
+  margin-bottom: 45%;
 
 }
 
@@ -45,7 +46,7 @@ code {
 }
 
 .trivia--component{
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   text-align: center;
   align-items: center;
@@ -62,33 +63,33 @@ code {
   border-radius: 10px;
   border-color: #012945;
   background-color: inherit;
-  height:50px;
+  height:70px;
   cursor: pointer;
-  width: 30%;
+  width: 40%;
 }
 .trivia--answer_options_selected{
   border-radius: 10px;
   border-color: #012945;
   background-color: #5a6499;
-  height:50px;
+  height:70px;
   cursor: pointer;
-  width: 30%;
+  width: 40%;
 }
 .trivia--answer_options_true{
   border: transparent;
   border-radius: 10px;
   background-color: #ccdbd0;
-  height:50px;
+  height:70px;
   cursor: pointer;
-  width: 30%;
+  width: 40%;
 }
 .trivia--answer_options_false{
   border: transparent;
   border-radius: 10px;
   background-color: #F8BCBC;
-  height:50px;
+  height:70px;
   cursor: pointer;
-  width: 30%;
+  width: 40%;
 }
 
 .playagain--component{
