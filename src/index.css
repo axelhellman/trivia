@@ -5,9 +5,109 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F5F7FB;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.start--container{
+  text-align: center;
+  margin-top: 25%;
+  margin-bottom: 25%;
+
+}
+
+.start--title{
+  font-weight: bold;
+  font-size: 31.25px;
+}
+.start--dropmenu{
+  width: 50%;
+}
+
+.start--button{
+  margin-top: 20px;
+  background: linear-gradient(90.41deg, #8787cc 1.14%, #6f6fc9 100%);
+  border-radius: 20px;
+  color: white;
+  border: none;
+  cursor:pointer;
+  width: 50%;
+  height: 52px;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.trivia--questions{
+  border-bottom: 1px;
+}
+
+.trivia--component{
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+  margin-top: 10px;
+  border-bottom: 1px solid grey;
+}
+.trivia--answer_button{
+  display: flex;
+  gap: 10px;
+  padding: 5px;
+  justify-content: center;
+}
+.trivia--answer_options_default{
+  border-radius: 10px;
+  border-color: #012945;
+  background-color: inherit;
+  height:50px;
+  cursor: pointer;
+  width: 30%;
+}
+.trivia--answer_options_selected{
+  border-radius: 10px;
+  border-color: #012945;
+  background-color: #5a6499;
+  height:50px;
+  cursor: pointer;
+  width: 30%;
+}
+.trivia--answer_options_true{
+  border: transparent;
+  border-radius: 10px;
+  background-color: #ccdbd0;
+  height:50px;
+  cursor: pointer;
+  width: 30%;
+}
+.trivia--answer_options_false{
+  border: transparent;
+  border-radius: 10px;
+  background-color: #F8BCBC;
+  height:50px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.playagain--component{
+  display: flex;
+  justify-content: center;
+}
+.playagain--button{
+  margin-top: 20px;
+  background: linear-gradient(90.41deg, #8787cc 1.14%, #6f6fc9 100%);
+  border-radius: 20px;
+  color: white;
+  border: none;
+  cursor:pointer;
+  width: 20%;
+  height: 52px;
+  font-size: 16px;
+}
+.score{
+  font-weight: 300px;
+  font-size: 25px;
+  padding: 30px;
 }
