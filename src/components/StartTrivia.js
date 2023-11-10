@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Select from 'react-select';
 
@@ -7,7 +6,7 @@ function StartTrivia(props) {
 
   return(
     <div className="start--container">
-      <h1 className="start--title"> Test your knowledge in: </h1>
+      <h1 className="start--title"> New Title Text </h1>
       <Select
         placeholder={"Select Your Topic"}
         onChange={props.selectedCategory}
