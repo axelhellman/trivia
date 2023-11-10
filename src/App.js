@@ -15,28 +15,32 @@ function App() {
 
   //currently a race condition
   React.useEffect(() => {
-    async function getTopics() {
-      const res = await fetch("https://opentdb.com/api_category.php")
-      const result = await res.json()
-      const data_array = []
-      data_array.push({
-        value: "Mixed",
-        label: "Mixed",
-      })
-      for (let i = 0; i <result.trivia_categories.length; i++){
-        const newTop = {
-          value: result.trivia_categories[i].name,
-          label: result.trivia_categories[i].name,
-          id: result.trivia_categories[i].id,
+      let isMounted = true;
+      async function getTopics() {
+        const res = await fetch("https://opentdb.com/api_category.php")
+        const result = await res.json()
+        const data_array = []
+        data_array.push({
+          value: "Mixed",
+          label: "Mixed",
+        })
+        for (let i = 0; i <result.trivia_categories.length; i++){
+          const newTop = {
+            value: result.trivia_categories[i].name,
+            label: result.trivia_categories[i].name,
+            id: result.trivia_categories[i].id,
+          }
+          data_array.push(newTop)
         }
-        data_array.push(newTop)
+        if (isMounted) {
+          setTopics(data_array)
+        }
       }
-      setTopics(data_array)
-    }
-    getTopics()
-    //avoid race condition
-    //return () => categoryFetched = false
-  }, [start])
+      getTopics()
+      return () => {
+        isMounted = false;
+      }
+    }, [start])
 
     React.useEffect(() => {
       let dataFetched= true;
