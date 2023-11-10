@@ -1,7 +1,6 @@
 import React from 'react'
-import Trivia from './components/Trivia'
-import StartTrivia from './components/StartTrivia'
-//import { nanoid } from 'nanoid'
+import TriviaElements from './components/TriviaElements'
+import CategoryElements from './components/CategoryElements'
 function App() {
 
   const [correct, setCorrect] = React.useState([])
@@ -35,7 +34,24 @@ function App() {
     }
     getTopics()
     //avoid race condition
-    //return () => categoryFetched = false
+  return (
+    <div className="App">
+      {start ? <div><CategoryElements startTrivia={startTrivia} topics={topics} selectedCategory={selectedCategory} /></div> :
+      <div>
+        <TriviaElements options={options} answerClick={answerClick} />
+        {!score ? <div className="playagain--component">
+        <button className="start--button" onClick={scoreCheck}> Check Answers </button></div> :
+        <div className="playagain--component">
+          <button className="playagain--button" onClick={restartGame}> Play Again </button>
+          <div className="score"> Your score: {score.length}/{correct.length} </div>
+          <button className="playagain--button" onClick={changeTopic}> Change Topic </button>
+        </div>}
+      </div>}
+    </div>
+  )
+}
+
+export default App;
   }, [start])
 
     React.useEffect(() => {
@@ -157,28 +173,6 @@ function App() {
       setOptions([])
       setStart(!start)
     }
-    const triviaElements = options.map((arr, i) =>
-    <Trivia
-        key={i}
-        id = {options[i].id}
-        answer_options={arr.answerOptions}
-        answerClick = {answerClick}
-        question = {options[i].question}
-        questionID = {arr.id}
-        disabled={arr.disabled}
-        />)
-    const categoryElements =
-    <StartTrivia
-      startTrivia={startTrivia}
-      topics={topics}
-      selectedCategory={selectedCategory}
-      />
-
-      function selectedCategory(selectedTopic){
-        !selectedTopic.id ? setCategory("") :setCategory("&category="+selectedTopic.id)
-      }
-    //<StartTrivia startTrivia={startTrivia} selectTopic={selectTopic}/>
-  return (
     <div className="App">
       {start ? <div>{categoryElements}</div> :
       <div>
