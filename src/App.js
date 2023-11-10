@@ -51,8 +51,8 @@ function App() {
   )
 }
 
-export default App;
   }, [start])
+export default App;
 
     React.useEffect(() => {
       let dataFetched= true;
