@@ -1,5 +1,5 @@
-import React from 'react';
-import StartTrivia from './StartTrivia';
+import React from "react";
+import StartTrivia from "./StartTrivia";
 
 const CategoryElements = ({ startTrivia, topics, selectedCategory }) => (
   <StartTrivia
