@@ -14,6 +14,7 @@ function App() {
 
   //currently a race condition
   React.useEffect(() => {
+    let dataFetched = true;
     async function getTopics() {
       const res = await fetch("https://opentdb.com/api_category.php")
       const result = await res.json()
@@ -30,9 +31,14 @@ function App() {
         }
         data_array.push(newTop)
       }
-      setTopics(data_array)
+      if (dataFetched) {
+        setTopics(data_array)
+      }
     }
     getTopics()
+    return () => {
+      dataFetched = false;
+    }
     //avoid race condition
   return (
     <div className="App">
