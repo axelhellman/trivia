@@ -1,10 +1,8 @@
-import React from 'react';
-import Select from 'react-select';
-
+import React from "react";
+import Select from "react-select";
 
 function StartTrivia(props) {
-
-  return(
+  return (
     <div className="start--container">
       <h1 className="start--title"> New Title Text </h1>
       <Select
@@ -12,7 +10,11 @@ function StartTrivia(props) {
         onChange={props.selectedCategory}
         options={props.topics}
       />
-      <button className="start--button" onClick={props.startTrivia}> Start Quiz </button>
+      <button className="start--button" onClick={props.startTrivia}>
+        {" "}
+        Start Quiz{" "}
+      </button>
     </div>
-  )
-} export default StartTrivia;
+  );
+}
+export default StartTrivia;
